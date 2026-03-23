@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -23,4 +24,100 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  * {
+    font-family: "Space Grotesk", sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-float-1 { animation: float-1 20s ease-in-out infinite; }
+  .animate-float-2 { animation: float-2 18s ease-in-out infinite; }
+  .animate-float-3 { animation: float-3 22s ease-in-out infinite; }
+  .animate-float-particle-1 { animation: float-particle-1 8s ease-in-out infinite; }
+  .animate-float-particle-2 { animation: float-particle-2 10s ease-in-out infinite; }
+  .animate-float-particle-3 { animation: float-particle-3 12s ease-in-out infinite; }
+  .animate-vibrate-attention { animation: vibrate-attention 3s ease-in-out infinite; }
+  .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite; }
+  .animate-glow { animation: glow 3s ease-in-out infinite; }
+  .animate-gradient { animation: gradient 5s ease infinite; }
+  .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
+  .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+  .animate-pulse-slow { animation: pulse-slow 4s ease-in-out infinite; }
+}
+
+@keyframes float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -40px) scale(1.05); }
+  66%       { transform: translate(-20px, -20px) scale(0.98); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-40px, 30px) scale(1.03); }
+  66%       { transform: translate(20px, -30px) scale(0.97); }
+}
+@keyframes float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50%       { transform: translate(-30px, -40px) scale(1.08) rotate(5deg); }
+}
+
+@keyframes float-particle-1 {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+  50%       { transform: translateY(-30px) translateX(20px); opacity: 0.8; }
+}
+@keyframes float-particle-2 {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+  50%       { transform: translateY(-40px) translateX(-20px); opacity: 0.9; }
+}
+@keyframes float-particle-3 {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+  50%       { transform: translateY(30px) translateX(-15px); opacity: 0.7; }
+}
+
+@keyframes bubble-float {
+  0%   { transform: translateY(0) scale(0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  50%  { transform: translateY(-100px) scale(1); opacity: 0.6; }
+  100% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+}
+
+@keyframes vibrate-attention {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  2%        { transform: translate(-2px, 0) scale(1.02); }
+  4%        { transform: translate(2px, 0) scale(1.02); }
+  6%        { transform: translate(-2px, 0) scale(1.02); }
+  8%        { transform: translate(2px, 0) scale(1.02); }
+  10%       { transform: translate(0, 0) scale(1); }
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 123, 209, 0.7); transform: scale(1); }
+  50%  { box-shadow: 0 0 0 10px rgba(46, 123, 209, 0); transform: scale(1.05); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 123, 209, 0); transform: scale(1); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(46, 123, 209, 0.2); }
+  50%       { box-shadow: 0 8px 40px rgba(46, 123, 209, 0.4); }
+}
+
+@keyframes gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 0.6; }
 }

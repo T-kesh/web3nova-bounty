@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Web3NovaEffects from "@/components/Web3NovaEffects";
+import Navbar from "@/components/Navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +28,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative bg-black text-white selection:bg-[#2E7BD1]/30">
+        <Web3NovaEffects />
+        <Navbar />
+        <div className="relative z-10 flex flex-col min-h-full w-full pt-20">{children}</div>
+      </body>
     </html>
   );
 }
